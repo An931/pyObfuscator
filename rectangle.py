@@ -1,10 +1,14 @@
 class Rectangle:
+	'''my 
+				class 
+	of rectangles'''
 	def __init__(self, a, b):
 		self.width = max(a, b)
 		self.heigh = min(a, b)
 	def get_square(self):
 		return self.width * self.heigh
 	def get_perimetr(self):
+		# count perimetr
 		return 2 * (self.width + self.heigh)
 if __name__ == '__main__':
 	print(locals())

@@ -16,14 +16,19 @@ class ObfuscatorApp(QMainWindow):
 
 
 	def initUI(self):
-		hlayout = QHBoxLayout()
-		vlayout = QVBoxLayout(self)
+
 		self.origin_text = QTextEdit(self)
 		self.changed_text = QTextEdit(self)
 		self.changed_text.setReadOnly(True)
+		# list_font = QFont()
+		# list_font.fromString(self.list.font().toString())
+		# self.text.setFont(list_font)
 
 		button = QPushButton('obfuscate', self)
 		button.clicked.connect(self.obfuscate_code)
+
+		hlayout = QHBoxLayout()
+		vlayout = QVBoxLayout(self)
 		hlayout.addWidget(self.origin_text)
 		hlayout.addWidget(button)
 		hlayout.addWidget(self.changed_text)
@@ -63,9 +68,9 @@ class ObfuscatorApp(QMainWindow):
 	def obfuscate_code(self):
 		if not self.origin_text.toPlainText():
 			return
-		# new_text = Obfuscator.obfuscate(self.origin_text.toPlainText())
-		# self.changed_text.setText(new_text)
-		self.changed_text.setText(self.origin_text.toPlainText())
+		new_text = Obfuscator.obfuscate(self.origin_text.toPlainText())
+		self.changed_text.setText(new_text)
+		# self.changed_text.setText(self.origin_text.toPlainText())
 
 
 
